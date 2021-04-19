@@ -1,0 +1,69 @@
+$primary-color: #5fc871;
+$enabled-primary-color: #4fac5e;
+$focus-primary-color: #cef7de;
+$secondary-color: #053b51;
+$text-primary-color: #053b51;
+$text-secondary-color: white;
+$background-color: #eef4fc;
+$text-error-color: red;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: $background-color;
+  color: $text-primary-color;
+}
+
+label.form-error {
+  color: red;
+}
+
+app-expense-header > div {
+  background-color: $secondary-color;
+  color: $text-secondary-color;
+}
+
+.p-datatable {
+  .p-datatable-thead > tr > th,
+  .p-datatable-scrollable-header-box {
+    background: $primary-color;
+    color: $text-secondary-color;
+    border: 1px solid $primary-color;
+  }
+  .p-sortable-column {
+    &.p-highlight {
+      background: $focus-primary-color;
+      color: $text-primary-color;
+      .p-sortable-column-icon {
+        color: $text-primary-color;
+      }
+      &:hover {
+        color: $text-primary-color;
+      }
+      &:focus {
+        box-shadow: inset 0 0 0 0.15rem $focus-primary-color;
+      }
+    }
+    .p-sortable-column-icon {
+      color: $text-secondary-color;
+    }
+  }
+}
+
+.p-paginator {
+  background: $background-color;
+}
+
+.p-button {
+  background: $primary-color;
+  color: $text-secondary-color;
+  border: 1px solid $primary-color;
+  &:enabled:hover {
+    background: $enabled-primary-color;
+    border: 1px solid $enabled-primary-color;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem $focus-primary-color;
+  }
+}

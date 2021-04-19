@@ -1,0 +1,4 @@
+{
+  "currencyApiEndpoint": "http://localhost:3001/api/",
+  "expenseApiEndpoint": "http://localhost:3000/api/"
+}
