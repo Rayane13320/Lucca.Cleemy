@@ -4,10 +4,13 @@
   </div>
   <div fxLayout="column" fxLayoutAlign="center"><h1>Cleemy</h1></div>
   <div fxLayout="column" fxLayoutAlign="center">
-    <p-dropdown
-      [ngModel]="defaultCurrency"
-      [options]="currencyQuery.currencies$ | async"
-      (onChange)="selectCurrency($event)"
-    ></p-dropdown>
+    <div fxLayoutGap="1em">
+      <label>Currency</label>
+      <p-dropdown
+        [ngModel]="defaultCurrency"
+        [options]="currencyQuery.currencies$ | async"
+        (onChange)="selectCurrency($event)"
+      ></p-dropdown>
+    </div>
   </div>
 </div>
