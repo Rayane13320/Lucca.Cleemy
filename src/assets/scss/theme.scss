@@ -38,6 +38,9 @@ app-expense-header > div {
         color: $text-primary-color;
       }
       &:hover {
+        .p-sortable-column-icon {
+          color: $text-primary-color;
+        }
         color: $text-primary-color;
       }
       &:focus {

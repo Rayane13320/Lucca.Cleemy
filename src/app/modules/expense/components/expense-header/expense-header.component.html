@@ -1,8 +1,10 @@
 <div fxLayout="row" fxLayoutAlign="space-between center">
-  <ng-container *ngIf="expenseQuery.expenseTotal$ | async as total">
+  <ng-container
+    *ngIf="{ total: expenseQuery.expenseTotal$ | async } as context"
+  >
     <label i18n="@@headerExpenseLabel"
-      >{total, plural, =0 {0 expense} =1 {1 expense} other
-      {{{total}} expenses}}</label
+      >{context.total, plural, =0 {0 expense} =1 {1 expense} other
+      {{{context.total}} expenses}}</label
     >
   </ng-container>
   <h1>Cleemy</h1>

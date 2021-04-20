@@ -1,5 +1,12 @@
-import { Component, ChangeDetectionStrategy, ViewChild } from "@angular/core";
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ViewChild,
+  TemplateRef,
+  ElementRef,
+} from "@angular/core";
 import { MessageService } from "primeng/api";
+import { Table } from "primeng/table";
 import { Observable, Subject } from "rxjs";
 import { switchMap, tap } from "rxjs/operators";
 import { ExpenseItem } from "src/app/modules/expense/state/expense/expense.model";
@@ -18,9 +25,16 @@ export class ExpenseListComponent {
   @ViewChild(ExpenseDialogComponent)
   public expenseDialogComponent!: ExpenseDialogComponent;
 
+  @ViewChild(Table)
+  public expenseTable!: Table;
+
+  @ViewChild("searchField")
+  public searchField: ElementRef;
+
   public expenses$: Observable<Array<ExpenseItem>>;
   public pageTotalSubject: Subject<number> = new Subject<number>();
   public readonly PAGE_ITEM_LIMIT: number = 5;
+  public readonly searchPlaceHolder: string = $localize`:@@searchExpensePlaceHolder:Search expense`;
 
   private currentPage: number;
   constructor(
@@ -46,6 +60,10 @@ export class ExpenseListComponent {
   }
 
   public getExpenses(page: number): void {
+    if (page !== this.currentPage && this.expenseTable) {
+      this.expenseTable.filterGlobal(null, "contains");
+      this.searchField.nativeElement.value = null;
+    }
     this.getExpensesObservable(page).subscribe();
   }
 
@@ -63,6 +81,10 @@ export class ExpenseListComponent {
 
   public create(): void {
     this.expenseDialogComponent.create();
+  }
+
+  public getDeletionMessage(id: string): string {
+    return $localize`:@@expenseDeletionConfirm:Do you really want to delete the expense number ${id} ?`;
   }
 
   private getExpensesObservable(page: number): Observable<void> {

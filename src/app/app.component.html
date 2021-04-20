@@ -1,6 +1,24 @@
 <app-expense> </app-expense>
 <p-toast position="bottom-left"></p-toast>
 <p-confirmDialog
-  header="Confirmation"
+  #dialog
+  [header]="confirmDialogHeader"
   icon="pi pi-exclamation-triangle"
-></p-confirmDialog>
+>
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-check"
+      [label]="confirmDialogAccept"
+      (click)="dialog.accept()"
+    ></button>
+    <button
+      type="button"
+      pButton
+      icon="pi pi-times"
+      [label]="confirmDialogReject"
+      (click)="dialog.reject()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>

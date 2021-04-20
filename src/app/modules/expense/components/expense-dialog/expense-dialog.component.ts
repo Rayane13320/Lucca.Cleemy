@@ -7,7 +7,6 @@ import {
 } from "@angular/core";
 import {
   AbstractControl,
-  Form,
   FormBuilder,
   FormGroup,
   Validators,
@@ -56,11 +55,11 @@ export class ExpenseDialogComponent implements OnDestroy {
   private disposeSignal: Subject<void> = new Subject<void>();
 
   constructor(
+    public readonly currencyQuery: CurrencyQuery,
     private readonly formBuilder: FormBuilder,
     private readonly messageService: MessageService,
     private readonly expenseService: ExpenseService,
     private readonly expenseQuery: ExpenseQuery,
-    public readonly currencyQuery: CurrencyQuery,
   ) {
     this.defaultCurrency$ = currencyQuery.selectCurrency(
       this.defaultCurrencyCode,
@@ -85,11 +84,8 @@ export class ExpenseDialogComponent implements OnDestroy {
       this.formControls.currency.valueChanges,
       this.formControls.amount.valueChanges,
     ])
-      .pipe(
-        takeUntil(this.disposeSignal),
-        tap(([currency, amount]) => this.setEuroAmount(currency, amount)),
-      )
-      .subscribe();
+      .pipe(takeUntil(this.disposeSignal))
+      .subscribe(([currency, amount]) => this.setEuroAmount(currency, amount));
   }
 
   public ngOnDestroy(): void {

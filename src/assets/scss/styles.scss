@@ -11,3 +11,7 @@ td.cell-comment {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.p-datatable .p-datatable-thead > tr > th {
+  text-align: center;
+}

@@ -1,9 +1,32 @@
 <div fxLayoutAlign="center" fxLayoutGap="1em" fxLayout="column">
   <p-table
+    #dt
     [value]="expenseQuery.expenseItems$ | async"
-    [scrollable]="true"
     *ngIf="currencyQuery.active$ | async as currency"
+    sortField="purchasedOn"
+    [sortOrder]="-1"
+    [globalFilterFields]="[
+      'id',
+      'purchasedOn',
+      'nature',
+      'originalAmount.amount',
+      'comment'
+    ]"
   >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            #searchField
+            pInputText
+            type="text"
+            (input)="dt.filterGlobal($event.target.value, 'contains')"
+            [placeholder]="searchPlaceHolder"
+          />
+        </span>
+      </div>
+    </ng-template>
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="id" i18n="@@expenseListHeaderId">
@@ -38,7 +61,7 @@
     <ng-template pTemplate="body" let-expense>
       <tr>
         <td>{{ expense.id }}</td>
-        <td>{{ expense.purchasedOn | date: "MM/dd/yyyy" }}</td>
+        <td>{{ expense.purchasedOn | date: "shortDate" }}</td>
         <td>{{ expense.nature }}</td>
         <td>
           {{
@@ -54,12 +77,12 @@
         <td
           class="cell-comment"
           [pTooltip]="expense.comment"
-          tooltipPosition="left"
+          tooltipPosition="right"
         >
           {{ expense.comment }}
         </td>
-        <td>{{ expense.createdAt | date: "MM/dd/yyyy HH:mm:ss" }}</td>
-        <td>{{ expense.lastModifiedAt | date: "MM/dd/yyyy HH:mm:ss" }}</td>
+        <td>{{ expense.createdAt | date: "short" }}</td>
+        <td>{{ expense.lastModifiedAt | date: "short" }}</td>
         <td>
           <div fxLayoutAlign="space-evenly">
             <button
@@ -82,11 +105,7 @@
               icon="pi pi-times"
               class="p-button-rounded p-button-danger"
               confirm
-              [message]="
-                'Do you really want to delete the expense number ' +
-                expense.id +
-                ' ?'
-              "
+              [message]="getDeletionMessage(expense.id)"
               (accept)="deleteExpense(expense.id)"
             ></button>
           </div>
