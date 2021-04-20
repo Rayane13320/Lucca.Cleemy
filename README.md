@@ -4,6 +4,7 @@
 
 ## Presentation
 
+This is a simple app to manage your business related expenses.
 This application is using the PrimeNG component library.
 The package Akita allows data storage and the reactive part has been done with RxJS observables.
 Currency conversion is only available from US Dollar with the free versions of the different currency APIs so I created an API that returns currencies and their change rates.
