@@ -15,6 +15,7 @@ import {
 import { MessageService } from "primeng/api";
 import { BehaviorSubject, combineLatest, Observable, Subject } from "rxjs";
 import { takeUntil, tap } from "rxjs/operators";
+import { Currency } from "../../state/currency/currency.model";
 import { CurrencyQuery } from "../../state/currency/currency.query";
 import {
   convertedAmountCurrency,
@@ -44,7 +45,8 @@ export class ExpenseDialogComponent implements OnDestroy {
     return this.form.controls;
   }
 
-  public defaultCurrency: string = convertedAmountCurrency;
+  public defaultCurrencyCode: string = convertedAmountCurrency;
+  public defaultCurrency$: Observable<Currency>;
   public defaultDate: Date = new Date();
   public header: string;
   public saveButtonLabel: string;
@@ -60,6 +62,9 @@ export class ExpenseDialogComponent implements OnDestroy {
     private readonly expenseQuery: ExpenseQuery,
     public readonly currencyQuery: CurrencyQuery,
   ) {
+    this.defaultCurrency$ = currencyQuery.selectCurrency(
+      this.defaultCurrencyCode,
+    );
     this.form = formBuilder.group({
       id: [],
       purchasedOn: [null, Validators.required],
@@ -97,7 +102,7 @@ export class ExpenseDialogComponent implements OnDestroy {
     this.setCreateLabel();
     this.form.patchValue({
       purchasedOn: this.defaultDate,
-      currency: this.defaultCurrency,
+      currency: this.defaultCurrencyCode,
     });
 
     this.visible$.next(true);
@@ -105,8 +110,8 @@ export class ExpenseDialogComponent implements OnDestroy {
 
   public edit(id: string): void {
     this.isCreate = false;
-    this.header = `Edit expense ${id}`;
-    this.saveButtonLabel = "Update";
+    this.header = $localize`:@@expenseDialogEditHeader:Edit expense ${id}`;
+    this.saveButtonLabel = $localize`:@@expenseDialogUpdateButton:Update`;
     const expense: ExpenseItem = this.expenseQuery.getExpense(id);
     this.form.setValue({
       id: expense.id,
@@ -177,7 +182,7 @@ export class ExpenseDialogComponent implements OnDestroy {
       complete: () => {
         this.messageService.add({
           severity: "success",
-          summary: "Expense saved",
+          summary: $localize`:@@expenseSaved:Expense saved`,
         });
 
         this.expenseUpdate.emit();
@@ -185,7 +190,7 @@ export class ExpenseDialogComponent implements OnDestroy {
           this.form.reset();
           this.form.patchValue({
             purchasedOn: this.defaultDate,
-            currency: this.defaultCurrency,
+            currency: this.defaultCurrencyCode,
           });
         } else {
           this.close();
@@ -206,7 +211,7 @@ export class ExpenseDialogComponent implements OnDestroy {
   }
 
   private setCreateLabel(): void {
-    this.header = "New expense";
-    this.saveButtonLabel = "Create";
+    this.header = $localize`:@@expenseDialogNewExpenseHeader:New expense`;
+    this.saveButtonLabel = $localize`:@@expenseDialogCreateButton:Create`;
   }
 }

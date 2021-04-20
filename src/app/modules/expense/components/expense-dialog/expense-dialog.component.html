@@ -6,7 +6,7 @@
 >
   <form [formGroup]="form">
     <div class="form-grid ui-fluid">
-      <label>Date of expense</label>
+      <label i18n="@@expenseDialogExpenseDate">Date of expense</label>
       <div fxLayout="column" fxLayoutGap="0.2em">
         <p-calendar
           formControlName="purchasedOn"
@@ -18,24 +18,31 @@
           *ngIf="
             formControls.purchasedOn.dirty && !formControls.purchasedOn.valid
           "
+          i18n="@@expenseDialogExpenseDateRequiredError"
           >Date of expense is required.</label
         >
       </div>
 
-      <label>Nature</label>
+      <label i18n="@@expenseDialogNature">Nature</label>
       <div fxLayout="column" fxLayoutGap="0.2em">
         <input pInputText formControlName="nature" />
         <div *ngIf="formControls.nature.dirty && formControls.nature.errors">
-          <label class="form-error" *ngIf="formControls.nature.errors.required"
+          <label
+            class="form-error"
+            *ngIf="formControls.nature.errors.required"
+            i18n="@@expenseDialogNatureRequiredError"
             >Nature is required.</label
           >
-          <label class="form-error" *ngIf="formControls.nature.errors.maxlength"
+          <label
+            class="form-error"
+            *ngIf="formControls.nature.errors.maxlength"
+            i18n="@@expenseDialogNatureMaxlengthError"
             >Nature must be {{ NATURE_MAX_LENGTH }} caracters or less.</label
           >
         </div>
       </div>
 
-      <label>Amount</label>
+      <label i18n="@@expenseDialogAmount">Amount</label>
       <div fxLayout="column" fxLayoutGap="0.2em">
         <div fxLayoutGap="1em">
           <input pInputText formControlName="amount" pKeyFilter="pnum" />
@@ -49,28 +56,37 @@
         <label
           class="form-error"
           *ngIf="formControls.amount.dirty && !formControls.amount.valid"
+          i18n="@@expenseDialogAmountRequiredError"
           >Amount is required.</label
         >
       </div>
 
-      <ng-container *ngIf="currency.value !== defaultCurrency">
-        <label>Euro amount</label>
-        <div fxLayoutGap="1em">
-          <input readonly pInputText formControlName="convertedAmount" />
-          <label>€</label>
-        </div>
+      <ng-container *ngIf="currency.value !== defaultCurrencyCode">
+        <ng-container *ngIf="defaultCurrency$ | async as defaultCurrency">
+          <label i18n="@@expenseDialogConvertedAmount"
+            >{{ defaultCurrency.name }} amount</label
+          >
+          <div fxLayoutGap="1em">
+            <input readonly pInputText formControlName="convertedAmount" />
+            <label>{{ defaultCurrency.symbol }}</label>
+          </div>
+        </ng-container>
       </ng-container>
 
-      <label>Comment</label>
+      <label i18n="@@expenseDialogComment">Comment</label>
       <div fxLayout="column" fxLayoutGap="0.2em">
         <textarea pInputTextarea formControlName="comment"></textarea>
         <div *ngIf="formControls.comment.dirty && formControls.comment.errors">
-          <label class="form-error" *ngIf="formControls.comment.errors.required"
+          <label
+            class="form-error"
+            *ngIf="formControls.comment.errors.required"
+            i18n="@@expenseDialogCommentRequiredError"
             >Comment is required.</label
           >
           <label
             class="form-error"
             *ngIf="formControls.comment.errors.maxlength"
+            i18n="@@expenseDialogCommentMaxlengthError"
             >Comment must be {{ COMMENT_MAX_LENGTH }} caracters or less.</label
           >
         </div>
@@ -90,10 +106,13 @@
         *ngIf="isCreate"
         [disabled]="!form.valid"
         (click)="save(true)"
+        i18n="@@expenseDialogCreateAndAddButton"
       >
         Create and add
       </button>
-      <button pButton (click)="close()">Cancel</button>
+      <button pButton (click)="close()" i18n="@@expenseDialogCancelButton">
+        Cancel
+      </button>
     </div>
   </p-footer>
 </p-dialog>

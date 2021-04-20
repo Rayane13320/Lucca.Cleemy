@@ -1,11 +1,14 @@
-<div fxLayout="row" fxLayoutAlign="space-between">
-  <div fxLayout="column" fxLayoutAlign="center">
-    {{ expenseQuery.expenseTotal$ | async }} expenses
-  </div>
-  <div fxLayout="column" fxLayoutAlign="center"><h1>Cleemy</h1></div>
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <ng-container *ngIf="expenseQuery.expenseTotal$ | async as total">
+    <label i18n="@@headerExpenseLabel"
+      >{total, plural, =0 {0 expense} =1 {1 expense} other
+      {{{total}} expenses}}</label
+    >
+  </ng-container>
+  <h1>Cleemy</h1>
   <div fxLayout="column" fxLayoutAlign="center">
     <div fxLayoutGap="1em">
-      <label>Currency</label>
+      <label i18n="@@headerCurrencyLabel">Currency</label>
       <p-dropdown
         [ngModel]="defaultCurrency"
         [options]="currencyQuery.currencies$ | async"

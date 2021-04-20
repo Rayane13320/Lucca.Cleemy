@@ -36,4 +36,8 @@ export class CurrencyQuery extends QueryEntity<CurrencyState> {
     const rate: number = currency.rates.find((x) => x.to === target).rate;
     return rate;
   }
+
+  public selectCurrency(code: string): Observable<Currency> {
+    return this.selectEntity(code);
+  }
 }

@@ -5,3 +5,9 @@ body {
 .p-calendar {
   width: 100%;
 }
+
+td.cell-comment {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

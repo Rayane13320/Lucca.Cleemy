@@ -2,19 +2,19 @@
   "expenseItems": [
     {
       "id": "727212a0-4d73-4615-bd23-f",
-      "purchasedOn": "2018-12-04T00:00:00.000Z",
+      "purchasedOn": "2018-12-04T23:00:00.000Z",
       "nature": "Restaurant",
       "originalAmount": {
         "amount": 18,
-        "currency": "EUR"
+        "currency": "USD"
       },
       "convertedAmount": {
-        "amount": 18,
+        "amount": 15.12,
         "currency": "EUR"
       },
       "comment": "Mission de 5 jours à Londres",
       "createdAt": "2018-12-05T14:00:34.435154Z",
-      "lastModifiedAt": "2021-04-19T20:41:47.293Z"
+      "lastModifiedAt": "2021-04-20T16:09:20.119Z"
     },
     {
       "id": "727212a0-4d73-4615-bd23-d7ddfgf6f562491",
@@ -34,19 +34,19 @@
     },
     {
       "id": "727212a0-4d73-4615-bdqsd23-d7df6f562491",
-      "purchasedOn": "2018-12-04",
+      "purchasedOn": "2018-12-04T00:00:00.000Z",
       "nature": "Restaurant",
       "originalAmount": {
         "amount": 17,
         "currency": "GBP"
       },
       "convertedAmount": {
-        "amount": 19.09,
+        "amount": 19.72,
         "currency": "EUR"
       },
-      "comment": "Mission de 5 jours à Londres",
+      "comment": "Mission de 5 jours à Londres sdf sdf sdf sdf sdf sdf sdf sdf sd fsdf sdf sdf sdf ",
       "createdAt": "2018-12-05T14:00:34.435154Z",
-      "lastModifiedAt": "2018-12-05T14:00:34.435154Z"
+      "lastModifiedAt": "2021-04-20T16:15:06.357Z"
     },
     {
       "id": "727212a0-4d73-4615-bdqsdd23-d7df6f562491",
@@ -84,17 +84,17 @@
       "purchasedOn": "2018-12-04T00:00:00.000Z",
       "nature": "Restaurant",
       "originalAmount": {
-        "amount": 18,
-        "currency": "USD"
+        "amount": 1712,
+        "currency": "GBP"
       },
       "convertedAmount": {
-        "amount": 15.12,
+        "amount": 1985.9199999999998,
         "currency": "EUR"
       },
       "comment": "Mission de 5 jours à Londres",
-      "createdAt": "2021-04-19T19:19:37.730Z",
-      "lastModifiedAt": "2021-04-19T19:19:47.806Z",
-      "id": "31361736-45d5-4dee-9034-1c2842a8abe4"
+      "createdAt": "2021-04-20T05:52:41.751Z",
+      "lastModifiedAt": "2021-04-20T05:52:41.751Z",
+      "id": "ac47ec60-9678-4e83-834d-f6ebc5386c1c"
     }
   ]
 }

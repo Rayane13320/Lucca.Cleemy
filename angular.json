@@ -10,6 +10,11 @@
           "style": "scss"
         }
       },
+      "i18n": {
+        "locales": {
+          "fr": "src/locale/messages.fr.xlf"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -60,6 +65,9 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "fr": {
+              "localize": ["fr"]
             }
           }
         },
@@ -71,6 +79,9 @@
           "configurations": {
             "production": {
               "browserTarget": "Lucca-Cleemy:build:production"
+            },
+            "fr": {
+              "browserTarget": "Lucca-Cleemy:build:fr"
             }
           }
         },

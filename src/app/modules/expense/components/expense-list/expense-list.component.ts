@@ -40,7 +40,7 @@ export class ExpenseListComponent {
         complete: () =>
           this.messageService.add({
             severity: "success",
-            summary: "Expense deleted",
+            summary: $localize`:@@expenseDelete:Expense deleted`,
           }),
       });
   }

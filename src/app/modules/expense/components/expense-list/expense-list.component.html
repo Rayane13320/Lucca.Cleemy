@@ -6,25 +6,33 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
-        <th pSortableColumn="purchasedOn">
+        <th pSortableColumn="id" i18n="@@expenseListHeaderId">
+          Id <p-sortIcon field="id"></p-sortIcon>
+        </th>
+        <th pSortableColumn="purchasedOn" i18n="@@expenseListHeaderDate">
           Date <p-sortIcon field="purchasedOn"></p-sortIcon>
         </th>
-        <th pSortableColumn="nature">
+        <th pSortableColumn="nature" i18n="@@expenseListHeaderNature">
           Nature <p-sortIcon field="nature"></p-sortIcon>
         </th>
-        <th pSortableColumn="originalAmount.amount">
+        <th
+          pSortableColumn="originalAmount.amount"
+          i18n="@@expenseListHeaderAmount"
+        >
           Amount <p-sortIcon field="originalAmount.amount"></p-sortIcon>
         </th>
-        <th>Comment</th>
-        <th pSortableColumn="comment">
+        <th i18n="@@expenseListHeaderComment">Comment</th>
+        <th pSortableColumn="comment" i18n="@@expenseListHeaderCreationDate">
           Creation Date <p-sortIcon field="comment"></p-sortIcon>
         </th>
-        <th pSortableColumn="lastModifiedAt">
+        <th
+          pSortableColumn="lastModifiedAt"
+          i18n="@@expenseListHeaderModificationDate"
+        >
           Last Modification Date
           <p-sortIcon field="lastModifiedAt"></p-sortIcon>
         </th>
-        <th>Actions</th>
+        <th i18n="@@expenseListHeaderActions">Actions</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-expense>
@@ -43,7 +51,13 @@
               | currency: currency.code
           }}
         </td>
-        <td>{{ expense.comment }}</td>
+        <td
+          class="cell-comment"
+          [pTooltip]="expense.comment"
+          tooltipPosition="left"
+        >
+          {{ expense.comment }}
+        </td>
         <td>{{ expense.createdAt | date: "MM/dd/yyyy HH:mm:ss" }}</td>
         <td>{{ expense.lastModifiedAt | date: "MM/dd/yyyy HH:mm:ss" }}</td>
         <td>
@@ -87,7 +101,9 @@
       (onPageChange)="getExpenses($event.page + 1)"
     ></p-paginator>
     <div fxLayoutAlign="center">
-      <button pButton (click)="create()">New expense</button>
+      <button pButton (click)="create()" i18n="@@newExpenseButton">
+        New expense
+      </button>
     </div>
   </div>
 </div>

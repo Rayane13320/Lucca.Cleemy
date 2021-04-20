@@ -14,6 +14,7 @@ import { CalendarModule } from "primeng/calendar";
 import { KeyFilterModule } from "primeng/keyfilter";
 import { InputTextareaModule } from "primeng/inputtextarea";
 import { PaginatorModule } from "primeng/paginator";
+import { TooltipModule } from "primeng/tooltip";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PaginatorModule } from "primeng/paginator";
     KeyFilterModule,
     InputTextareaModule,
     PaginatorModule,
+    TooltipModule,
   ],
 })
 export class ExpenseModule {}
