@@ -1,70 +1,6 @@
 {
   "expenseItems": [
     {
-      "id": "727212a0-4d73-4615-bd23-f",
-      "purchasedOn": "2021-04-19T22:00:00.000Z",
-      "nature": "Restaurant",
-      "originalAmount": {
-        "amount": 18,
-        "currency": "USD"
-      },
-      "convertedAmount": {
-        "amount": 15.12,
-        "currency": "EUR"
-      },
-      "comment": "Déplacement à New York",
-      "createdAt": "2018-12-05T14:00:34.435154Z",
-      "lastModifiedAt": "2021-04-20T17:51:28.564Z"
-    },
-    {
-      "id": "727212a0-4d73-4615-bd23-d7ddfgf6f562491",
-      "purchasedOn": "2021-04-19T22:00:00.000Z",
-      "nature": "Restaurant",
-      "originalAmount": {
-        "amount": 26.59,
-        "currency": "USD"
-      },
-      "convertedAmount": {
-        "amount": 22.3356,
-        "currency": "EUR"
-      },
-      "comment": "Repas New York",
-      "createdAt": "2018-12-05T14:00:34.435154Z",
-      "lastModifiedAt": "2021-04-20T17:51:34.961Z"
-    },
-    {
-      "id": "727212a0-4d73-4615-bdqsd23-d7df6f562491",
-      "purchasedOn": "2021-04-18T22:00:00.000Z",
-      "nature": "Hot dog",
-      "originalAmount": {
-        "amount": 3,
-        "currency": "USD"
-      },
-      "convertedAmount": {
-        "amount": 2.52,
-        "currency": "EUR"
-      },
-      "comment": "Hot dog sur Time Square",
-      "createdAt": "2018-12-05T14:00:34.435154Z",
-      "lastModifiedAt": "2021-04-20T17:52:32.662Z"
-    },
-    {
-      "id": "727212a0-4d73-4615-bdqsdd23-d7df6f562491",
-      "purchasedOn": "2021-04-17T22:00:00.000Z",
-      "nature": "Snack",
-      "originalAmount": {
-        "amount": 32,
-        "currency": "USD"
-      },
-      "convertedAmount": {
-        "amount": 26.88,
-        "currency": "EUR"
-      },
-      "comment": "Chips duty free à l'aéroport",
-      "createdAt": "2018-12-05T14:00:34.435154Z",
-      "lastModifiedAt": "2021-04-20T17:53:21.666Z"
-    },
-    {
       "purchasedOn": "2021-04-14T22:00:00.000Z",
       "nature": "Avion",
       "originalAmount": {
@@ -191,6 +127,70 @@
       "createdAt": "2021-04-20T18:19:22.910Z",
       "lastModifiedAt": "2021-04-20T18:19:22.910Z",
       "id": "5c6901f2-5fcc-42df-ab6b-5f873625f00f"
+    },
+    {
+      "purchasedOn": "2021-04-19T22:00:00.000Z",
+      "nature": "Restaurant",
+      "originalAmount": {
+        "amount": 18,
+        "currency": "USD"
+      },
+      "convertedAmount": {
+        "amount": 15.12,
+        "currency": "EUR"
+      },
+      "comment": "Déplacement à New York",
+      "createdAt": "2021-04-20T20:29:11.545Z",
+      "lastModifiedAt": "2021-04-20T20:29:11.545Z",
+      "id": "d8b2eafe-3b51-415f-9e47-8ffd4c97f18b"
+    },
+    {
+      "purchasedOn": "2021-04-19T22:00:00.000Z",
+      "nature": "Restaurant",
+      "originalAmount": {
+        "amount": 26.59,
+        "currency": "USD"
+      },
+      "convertedAmount": {
+        "amount": 22.3356,
+        "currency": "EUR"
+      },
+      "comment": "Repas New York",
+      "createdAt": "2021-04-20T20:29:25.611Z",
+      "lastModifiedAt": "2021-04-20T20:29:25.611Z",
+      "id": "f06c2d12-8077-4949-b158-6df3ed3b0312"
+    },
+    {
+      "purchasedOn": "2021-04-18T22:00:00.000Z",
+      "nature": "Hot dog",
+      "originalAmount": {
+        "amount": 3,
+        "currency": "USD"
+      },
+      "convertedAmount": {
+        "amount": 2.52,
+        "currency": "EUR"
+      },
+      "comment": "Hot dog sur Time Square",
+      "createdAt": "2021-04-20T20:29:28.310Z",
+      "lastModifiedAt": "2021-04-20T20:29:28.310Z",
+      "id": "f84a1e01-b093-4853-bc60-be1c0b3f5499"
+    },
+    {
+      "purchasedOn": "2021-04-17T22:00:00.000Z",
+      "nature": "Snack",
+      "originalAmount": {
+        "amount": 32,
+        "currency": "USD"
+      },
+      "convertedAmount": {
+        "amount": 26.88,
+        "currency": "EUR"
+      },
+      "comment": "Chips duty free à l'aéroport",
+      "createdAt": "2021-04-20T20:29:30.584Z",
+      "lastModifiedAt": "2021-04-20T20:29:30.584Z",
+      "id": "af12a74d-466d-47c3-b09a-4a1d441a974a"
     }
   ]
 }

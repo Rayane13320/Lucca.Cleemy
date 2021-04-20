@@ -35,6 +35,9 @@ export class ExpenseListComponent {
   public pageTotalSubject: Subject<number> = new Subject<number>();
   public readonly PAGE_ITEM_LIMIT: number = 5;
   public readonly searchPlaceHolder: string = $localize`:@@searchExpensePlaceHolder:Search expense`;
+  public readonly editButtonLabel: string = $localize`:@@editButtonLabel:Edit`;
+  public readonly duplicateButtonLabel: string = $localize`:@@duplicateButtonLabel:Duplicate`;
+  public readonly deleteButtonLabel: string = $localize`:@@deleteButtonLabel:Delete`;
 
   private currentPage: number;
   constructor(

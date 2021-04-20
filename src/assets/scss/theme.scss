@@ -6,12 +6,14 @@ $text-primary-color: #053b51;
 $text-secondary-color: white;
 $background-color: #eef4fc;
 $text-error-color: red;
+$font-size: 14px;
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: $background-color;
   color: $text-primary-color;
+  font-size: $font-size;
 }
 
 label.form-error {
@@ -21,6 +23,10 @@ label.form-error {
 app-expense-header > div {
   background-color: $secondary-color;
   color: $text-secondary-color;
+}
+
+.p-component {
+  font-size: 1em;
 }
 
 .p-datatable {
@@ -49,6 +55,7 @@ app-expense-header > div {
     }
     .p-sortable-column-icon {
       color: $text-secondary-color;
+      font-size: 1em;
     }
   }
 }
@@ -69,4 +76,8 @@ app-expense-header > div {
   &:focus {
     box-shadow: 0 0 0 0.2rem $focus-primary-color;
   }
+}
+
+.pi {
+  font-size: 1em;
 }

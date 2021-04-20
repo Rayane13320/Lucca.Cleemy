@@ -45,7 +45,7 @@
       <label i18n="@@expenseDialogAmount">Amount</label>
       <div fxLayout="column" fxLayoutGap="0.2em">
         <div fxLayoutGap="1em">
-          <input pInputText formControlName="amount" />
+          <input pInputText formControlName="amount" pKeyFilter="pnum" />
           <p-dropdown
             #currency
             appendTo="body"
@@ -75,7 +75,7 @@
 
       <label i18n="@@expenseDialogComment">Comment</label>
       <div fxLayout="column" fxLayoutGap="0.2em">
-        <textarea pInputTextarea formControlName="comment"></textarea>
+        <textarea pInputTextarea formControlName="comment" rows="6"></textarea>
         <div *ngIf="formControls.comment.dirty && formControls.comment.errors">
           <label
             class="form-error"
