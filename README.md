@@ -8,7 +8,7 @@ This is a simple app to manage your business related expenses.
 This application is using the PrimeNG component library.
 The package Akita allows data storage and the reactive part has been done with RxJS observables.
 Currency conversion is only available from US Dollar with the free versions of the different currency APIs so I created an API that returns currencies and their change rates.
-It possible to chose between french and english.
+It possible to choose between french and english.
 _Note: the calendar component is using the date format mm/dd/yyyy regardless of the selected language_
 
 ---
